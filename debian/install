@@ -1,3 +1,6 @@
-bin/* usr/bin/
+staging_dir/* usr/share/carambola
+
+
+
 
 
