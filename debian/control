@@ -1,0 +1,15 @@
+Source: carambola-toolchain
+Section: devel
+Priority: optional
+Maintainer: Oscar Aceña Herrera <oscaracena@gmail.com>
+Build-Depends: debhelper (>= 8.0.0)
+Standards-Version: 3.9.4
+
+Package: carambola-toolchain
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Carambola toolchain
+ Includes a mipsel toolchain for developing with carambola and
+ carambola2 devices. Has g++, binutils and headers included
+
+
