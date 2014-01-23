@@ -1,0 +1,2 @@
+
+Please, compile on 32bits, as the OpenWRT does not work well on 64bits.
