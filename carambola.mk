@@ -21,3 +21,5 @@ CXXFLAGS      = --sysroot=$(TOOLCHAIN) -I. \
 		-I$(GCCINCLUDE) \
 		-I$(GCCINCLUDE)/mipsel-openwrt-linux-uclibc
 
+STRIP         = mipsel-openwrt-linux-uclibc-strip
+
