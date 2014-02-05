@@ -1,0 +1,12 @@
+Package: {{ name }}
+Version: {{ version }}
+Depends: {{ depends }}
+Status: unknown hold not-installed
+Essential: no
+Priority: optional
+Maintainer: {{ maintainer }}
+Architecture: ramips
+Description: {{ short_description }}
+ {{ long_description }}
+
+
