@@ -1,7 +1,6 @@
 Package: {{ name }}
 Version: {{ version }}
 Depends: {{ depends }}
-Status: unknown
 Essential: no
 Priority: optional
 Maintainer: {{ maintainer }}

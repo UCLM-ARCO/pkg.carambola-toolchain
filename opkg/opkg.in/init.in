@@ -1,0 +1,16 @@
+#!/bin/sh /etc/rc.common
+# -*- mode: sh; coding: utf-8 -*-
+
+START=99
+PIDFILE=/var/run/{{ name }}.pid
+
+start() {
+    echo "Starting {{ name }}..."
+    /usr/bin/{{ name }} &
+    echo $! > $PIDFILE
+}
+
+stop() {
+    echo "Stoping {{ name }}..."
+    kill $(cat $PIDFILE)
+}

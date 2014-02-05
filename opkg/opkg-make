@@ -36,10 +36,15 @@ class OpkgMaker:
         dst = os.path.join(self.opkg_dir_path, "control")
         self.render_template(src, dst)
 
-        for script in ["preinst.in", "postinst.in", "prerm.in", "postrm.in"]:
-            src = os.path.join(self.template_dir, script)
-            dst = os.path.join(self.opkg_dir_path, script)
+        for script in ["preinst", "postinst", "prerm", "postrm"]:
+            src = os.path.join(self.template_dir, script + ".in")
+            dst = os.path.join(self.opkg_dir_path, script + ".ex")
             shutil.copy(src, dst)
+
+        if self.args.init:
+            src = "init.in"
+            dst = os.path.join(self.opkg_dir_path, "init")
+            self.render_template(src, dst)
 
     def render_template(self, src, dst):
         env = Environment(loader=FileSystemLoader(self.template_dir))
@@ -71,6 +76,8 @@ if __name__ == "__main__":
     args = argparse.ArgumentParser()
     args.add_argument('-p', required=True, metavar="name_version", dest="package",
                       help='Package name')
+    args.add_argument('-i', action="store_true", dest="init",
+                      help='Include init script')
     args.add_argument('-f', action="store_true", dest="force",
                       help='Overwrite and force creatin')
     args = args.parse_args()
