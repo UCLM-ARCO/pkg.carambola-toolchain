@@ -32,6 +32,7 @@ copy-important-files: UCDIR = $(INSTALL_DIR)/staging_dir/$(UCNAME)
 copy-important-files:
 	install -d $(INSTALL_DIR)
 	cp -r debian $(INSTALL_DIR)
+	cp -r opkg $(INSTALL_DIR)
 
 	install -d $(TCDIR)
 	cp -r $(TOOLCHAIN_DIR)/bin $(TCDIR)

@@ -1,7 +1,6 @@
-staging_dir/* usr/share/carambola
-usr/*	      usr
-
-
-
-
+staging_dir/*   usr/share/carambola/
+opkg/opkg.in    usr/share/carambola/
+opkg/opkg-build usr/bin
+opkg/opkg-make  usr/bin
+usr/*           usr/
 
