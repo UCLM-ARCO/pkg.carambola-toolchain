@@ -11,6 +11,11 @@ start() {
 }
 
 stop() {
+    if [ ! -f $PIDFILE ]; then
+	echo "Service not running, nothing done on stop"
+	return 0
+    fi
+
     echo "Stoping {{ name }}..."
-    kill $(cat $PIDFILE)
+    kill -9 $(cat $PIDFILE) > /dev/null 2>&1
 }
