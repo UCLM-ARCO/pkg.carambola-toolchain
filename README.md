@@ -1,4 +1,3 @@
-
 About
 =====
 
@@ -14,11 +13,11 @@ A compiled version of this package is available from
 http://babel.esi.uclm.es. You just need to add the following line to
 /etc/apt/sources.list:
 
-  deb http://babel.esi.uclm.es/arco sid main
+    deb http://babel.esi.uclm.es/arco sid main
 
 After that, update and install carambola-toolchain:
 
-  $ sudo apt-get update && sudo apt-get install carambola-toolchain
+    $ sudo apt-get update && sudo apt-get install carambola-toolchain
 
 
 How to Use
@@ -48,7 +47,7 @@ want to include in your package, and its location.
 To geneate these and other files, use opkg-make, indicating the name
 of the package and the versión, using the -p flag:
 
- $ opkg-make -p hello_1.0
+    $ opkg-make -p hello_1.0
 
 This will generate a directory, called opkg, and inside it, a bunch of
 files. The mentioned control, and some scripts to run when installing
@@ -62,9 +61,9 @@ Build the package
 
 You just need to run:
 
- $ opkg-build
+    $ opkg-build
 
-This will generate a file called name_ver.ipk. Send this package to
+This will generate a file called name\_ver.ipk. Send this package to
 you carambola and install it with opkg.
 
 
