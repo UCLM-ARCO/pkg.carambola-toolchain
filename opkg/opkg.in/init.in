@@ -1,12 +1,12 @@
 #!/bin/sh /etc/rc.common
 # -*- mode: sh; coding: utf-8 -*-
 
-START=99
+START=60
 PIDFILE=/var/run/{{ name }}.pid
 
 start() {
     echo "Starting {{ name }}..."
-    /usr/bin/{{ name }} &
+    /usr/bin/{{ name }} > /tmp/{{ name }}.out 2>&1 &
     echo $! > $PIDFILE
 }
 

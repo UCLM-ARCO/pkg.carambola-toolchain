@@ -1,8 +1,6 @@
 #!/bin/sh
 
-#
-# Put here your code
-#
+/etc/init.d/{{ name }} enable
 
 # always return 0 if success
 exit 0

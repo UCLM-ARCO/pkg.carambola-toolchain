@@ -15,6 +15,13 @@ def chown_root(info):
 
 
 def set_executable(info):
+    info.mode = int("0111101101", 2)
+    return info
+
+
+def root_exec(info):
+    set_executable(info)
+    chown_root(info)
     return info
 
 
@@ -51,7 +58,7 @@ class ControlFile:
         for script in ["preinst", "postinst", "prerm", "postrm"]:
             path = os.path.join(self.cwd, script)
             if os.path.isfile(path):
-                tar.add(path, script, filter=chown_root)
+                tar.add(path, script, filter=root_exec)
 
 
 class InstallFile:
@@ -95,13 +102,6 @@ class InstallFile:
         if not os.path.isfile(src):
             return
         dst = "etc/init.d/{0}".format(self.control.fields.Package)
-
-        def root_exec(info):
-            info.mode = int("0111101101", 2)
-            set_executable(info)
-            chown_root(info)
-            return info
-
         tar.add(src, dst, filter=root_exec)
 
 

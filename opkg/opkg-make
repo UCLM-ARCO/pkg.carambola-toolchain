@@ -46,9 +46,19 @@ class OpkgMaker:
             dst = os.path.join(self.opkg_dir_path, "init")
             self.render_template(src, dst)
 
+            src = os.path.join(self.opkg_dir_path, "postinst.ex")
+            dst = os.path.join(self.opkg_dir_path, "postinst")
+            print "SOURCE:", src, os.path.exists(src)
+            self.render_template(src, dst)
+            os.remove(src)
+
     def render_template(self, src, dst):
-        env = Environment(loader=FileSystemLoader(self.template_dir))
-        template = env.get_template(src)
+        dirname, filename = os.path.split(src)
+        if not dirname:
+            dirname = self.template_dir
+
+        env = Environment(loader=FileSystemLoader(dirname))
+        template = env.get_template(filename)
         with file(dst, "w") as dst:
             dst.write(template.render(self.fields))
 
