@@ -1,6 +1,0 @@
-#!/bin/sh
-
-/etc/init.d/{{ name }} enable
-
-# always return 0 if success
-exit 0

@@ -32,7 +32,6 @@ copy-important-files: UCDIR = $(INSTALL_DIR)/staging_dir/$(UCNAME)
 copy-important-files:
 	install -d $(INSTALL_DIR)
 	cp -r debian $(INSTALL_DIR)
-	cp -r opkg $(INSTALL_DIR)
 
 	install -d $(TCDIR)
 	cp -r $(TOOLCHAIN_DIR)/bin $(TCDIR)
@@ -55,10 +54,10 @@ copy-important-files:
 prepare-package: clone-repo build-toolchain
 
 debian-package: copy-important-files
-	cd $(INSTALL_DIR) && ian-build
+	cd $(INSTALL_DIR) && ian build
 
 debian-install:
-	cd $(INSTALL_DIR) && ian-install
+	cd $(INSTALL_DIR) && ian install
 
 clean:
 	rm -rf carambola-install *.tar.gz
